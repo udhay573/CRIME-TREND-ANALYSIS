@@ -1,93 +1,114 @@
-🔍 Crime Trend Analysis (2020–2022)
-
-This project analyzes crime data from Jan 2020 to Dec 2022 to uncover trends, patterns, and predictive insights using Python and statistical modeling. The analysis was conducted as part of the IE6400 Foundations for Data Analytics course at Northeastern University.
+🕵️ Crime Trend Analysis 
 
 
-📂 Data Source
+🔍 Overview
+This project analyzes Los Angeles crime data from Jan 2020 to Oct 2023 to identify crime trends, seasonal effects, hotspot regions, and forecast future crime incidents using statistical models.
 
-The dataset was obtained from a public crime reporting source covering Jan 2020 – Oct 2023. Only full years (2020–2022) were considered for analysis.
+
+📁 Data Summary
+Source: Los Angeles Open Data Portal
+
+Time Frame: Jan 2020 – Oct 2023
+
+Total Columns: 28
+
+Important Fields:
+
+DATE OCC – Crime occurrence date
+
+TIME OCC – Crime occurrence time
+
+AREA NAME – Location
+
+CRM CD DESC – Crime description
+
+VICT SEX, VICT AGE, VICT DESCENT – Victim demographics
+
+
 
 🧹 Data Cleaning
+Excluded 2023 (partial year)
 
-Excluded partial data from 2023.
+Filled missing values with "Unknown"
 
-Filled nulls in victim gender, descent, and premises with "Unknown".
+Cleaned inconsistent gender entries
 
-Encoded inconsistent gender values ('H', 'Unknown') as 'X'.
+Converted date fields to datetime format
 
-Converted date columns to datetime format.
-
-Checked for and removed duplicate records.
-
-
-
-📊 Key Insights
+Verified no duplicate rows
 
 
 
 
-📈 Overall Crime Trends
+
+📊 Key Findings
 
 
-Crimes increased at a CAGR of 8.38% from 2020 (~200K) to 2022 (~234K).
+
+📈 Crime Trends
+Overall crime grew at 8.38% CAGR (2020–2022)
+
+Top Crime: Vehicle Theft
+
+Fastest Growing: Identity Theft (8.5k → 22k)
 
 
-📅 Seasonality & Day-of-Week
+📆 Seasonality & Timing
+No strong seasonality; minor dip in February
+
+Crimes peak on Fridays and Saturdays
+
+Most active times: Afternoons and late nights
 
 
-No strong monthly seasonality detected.
+📍 Regional Crime Distribution
+Highest Crime Area: Central (~42k crimes)
 
-Fridays and Saturdays show highest crime frequency.
+Lowest: Foothill (~22k crimes)
 
-Tuesdays show the lowest.
-
-
-🚓 Most Common Crimes
-
-Top Crime (All years): VEHICLE – STOLEN
-
-Significant rise in THEFT OF IDENTITY from 2020 to 2022.
+Average per area: ~31k
 
 
-🌍 Regional Crime Distribution
+👤 Victim Analysis
+Top male-targeted crime: Aggravated Assault
 
-Average: ~31K crimes per area.
+Top female-targeted crime: Intimate Partner Assault
 
-Central area highest (~42K), Foothill lowest (~22K).
-
-
-🧒 Demographics & Impact
-
-Males most frequently face ASSAULT WITH DEADLY WEAPON.
-
-Females face more INTIMATE PARTNER - SIMPLE ASSAULT.
+Common to both: Battery - Simple Assault
 
 
-📉 Major Event Impacts
+🧨 External Event Impacts
+COVID-19: Sharp drop during lockdowns
 
-Sharp drop in crime during COVID lockdowns (2020).
+Elections: Temporary crime dip due to high security
 
-Rise in juvenile crimes post-2022 linked to policy changes.
-
-
-📈 Forecasting Future Crime (ARIMA)
-
-Used ACF and PACF to configure ARIMA(30, 0, 30).
-
-Forecasted 90 future days.
+Juvenile Crime Spike: Notable increase post-March 2022
 
 
-Achieved:
+📈 Forecasting
+Model Used: ARIMA (30, 0, 30)
 
-MSE: ~5034.67
+Forecast Horizon: 90 days
 
-R² Score: 55.73%
+Accuracy:
+
+R² = 55.7%
+
+MSE = 5034.67
+
+Model shows decent performance and captures recent trends
 
 
-📎 Tools & Technologies
+🧰 Tools & Libraries
+Language: Python
 
-Python (Pandas, Matplotlib, Statsmodels)
+Libraries:
 
-Jupyter Notebook
+pandas, numpy – Data handling
 
-ARIMA for time series forecasting
+matplotlib, seaborn – Visualization
+
+statsmodels – ARIMA modeling
+
+sklearn – Metrics & preprocessing
+
