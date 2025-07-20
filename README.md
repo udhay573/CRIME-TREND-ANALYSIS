@@ -1,115 +1,73 @@
-# 🕵️ Crime Trend Analysis 
+🕵️ Crime Trend Analysis – Los Angeles Crime Data Analytics
 
+📁 Dataset
+* **Source:** Los Angeles Open Data Portal
+* **URL:** https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data
+* **Time Period:** January 2020 – October 2023
+* **Total Features:** 28 columns
+* **Key Fields:**
+   * DATE OCC, TIME OCC: Temporal data
+   * AREA NAME: Geographic location
+   * CRM CD DESC: Crime classification
+   * VICT_SEX, VICT_AGE, VICT_DESCENT: Demographics
 
-🔍 Overview
-This project analyzes Los Angeles crime data from Jan 2020 to Oct 2023 to identify crime trends, seasonal effects, hotspot regions, and forecast future crime incidents using statistical models.
+🧹 Data Preprocessing
+* **Year Filtering:** Excluded 2023 (partial year data)
+* **Missing Values:** Filled with "Unknown" category
+* **Data Cleaning:** Standardized inconsistent gender entries
+* **Type Conversion:** Datetime formatting for temporal analysis
+* **Deduplication:** Verified no duplicate records
 
+🔍 Analytical Insights
+* **Growth Rate:** 8.38% CAGR (2020-2022)
+* **Top Crime Type:** Vehicle Theft
+* **Fastest Growing:** Identity Theft (8.5k → 22k incidents)
+* **Temporal Patterns:**
+   * Peak Days: Fridays & Saturdays
+   * Peak Hours: Afternoons & late nights
+   * Seasonal: Minor dip in February
 
-📁 Data Summary
-Source: Los Angeles Open Data Portal
-https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data
+📍 Geographic Distribution
+| Area | Crime Count | Status |
+|------|-------------|---------|
+| **Central** | **~42,000** | **Highest** |
+| Average | ~31,000 | Baseline |
+| Foothill | ~22,000 | Lowest |
 
-Time Frame: Jan 2020 – Oct 2023
+👥 Victim Demographics
+* **Male-targeted:** Aggravated Assault (most common)
+* **Female-targeted:** Intimate Partner Assault (most common)
+* **Both genders:** Battery - Simple Assault
 
-Total Columns: 28
+🌊 External Impact Analysis
+* **COVID-19 Lockdowns:** Sharp crime reduction
+* **Election Periods:** Temporary dips due to increased security
+* **Post-March 2022:** Notable juvenile crime surge
 
-Important Fields:
+📈 Forecasting Model & Results
+| Model | Parameters | Horizon | R² Score | MSE |
+|-------|------------|---------|----------|-----|
+| **ARIMA** | **(30, 0, 30)** | **90 days** | **55.7%** | **5034.67** |
 
-DATE OCC – Crime occurrence date
+**Model Performance:** Decent accuracy with good recent trend capture
 
-TIME OCC – Crime occurrence time
+🧰 Tools & Technologies
+* **Programming:** Python
+* **Data Processing:** pandas, numpy
+* **Visualization:** matplotlib, seaborn
+* **Statistical Modeling:** statsmodels (ARIMA)
+* **Metrics & Evaluation:** scikit-learn
 
-AREA NAME – Location
+✅ Key Conclusions
+* Crime shows a consistent upward trend with 8.38% annual growth
+* Vehicle theft remains the dominant crime category
+* Identity theft is experiencing explosive growth (158% increase)
+* Geographic disparities persist, with the  Central area most affected
+* External events significantly impact crime patterns
 
-CRM CD DESC – Crime description
-
-VICT SEX, VICT AGE, VICT DESCENT – Victim demographics
-
-
-
-🧹 Data Cleaning
-Excluded 2023 (partial year)
-
-Filled missing values with "Unknown"
-
-Cleaned inconsistent gender entries
-
-Converted date fields to datetime format
-
-Verified no duplicate rows
-
-
-
-
-
-📊 Key Findings
-
-
-
-📈 Crime Trends
-Overall crime grew at 8.38% CAGR (2020–2022)
-
-Top Crime: Vehicle Theft
-
-Fastest Growing: Identity Theft (8.5k → 22k)
-
-
-📆 Seasonality & Timing
-No strong seasonality; minor dip in February
-
-Crimes peak on Fridays and Saturdays
-
-Most active times: Afternoons and late nights
-
-
-📍 Regional Crime Distribution
-Highest Crime Area: Central (~42k crimes)
-
-Lowest: Foothill (~22k crimes)
-
-Average per area: ~31k
-
-
-👤 Victim Analysis
-Top male-targeted crime: Aggravated Assault
-
-Top female-targeted crime: Intimate Partner Assault
-
-Common to both: Battery - Simple Assault
-
-
-🧨 External Event Impacts
-COVID-19: Sharp drop during lockdowns
-
-Elections: Temporary crime dip due to high security
-
-Juvenile Crime Spike: Notable increase post-March 2022
-
-
-📈 Forecasting
-Model Used: ARIMA (30, 0, 30)
-
-Forecast Horizon: 90 days
-
-Accuracy:
-
-R² = 55.7%
-
-MSE = 5034.67
-
-Model shows decent performance and captures recent trends
-
-
-🧰 Tools & Libraries
-Language: Python
-
-Libraries:
-
-pandas, numpy – Data handling
-
-matplotlib, seaborn – Visualization
-
-statsmodels – ARIMA modeling
-
-sklearn – Metrics & preprocessing
-
+🚀 Future Enhancements
+* **Advanced Models:** LSTM/Prophet for better time series forecasting
+* **Real-time Analysis:** Streaming data pipeline integration
+* **Predictive Policing:** ML models for crime prevention strategies
+* **Demographic Deep Dive:** Intersectional analysis of victim patterns
+* **Cross-city Comparison:** Benchmark against other major US cities
