@@ -7,6 +7,7 @@ This project analyzes Los Angeles crime data from Jan 2020 to Oct 2023 to identi
 
 📁 Data Summary
 Source: Los Angeles Open Data Portal
+https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data
 
 Time Frame: Jan 2020 – Oct 2023
 
